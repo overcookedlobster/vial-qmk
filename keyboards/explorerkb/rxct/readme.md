@@ -1,12 +1,12 @@
-# explorerkb
+# ExplorerKB
 
-![explorerkb](imgur.com image replace me!)
+![Explorer Keyboard RxCT](https://github.com/DreaM117er/Explorer-Keyboard-RxCT/blob/main/image0.jpg)
 
 *A short description of the keyboard/project*
 
 * Keyboard Maintainer: [DreaM117er](https://github.com/DreaM117er)
-* Hardware Supported: *The PCBs, controllers supported*
-* Hardware Availability: *Links to where you can find this hardware*
+* Hardware Supported: ATmega32U4 MCU
+* Hardware Availability: https://github.com/DreaM117er/vial-qmk/tree/vial/keyboards/explorerkb/
 
 Make example for this keyboard (after setting up your build environment):
 
