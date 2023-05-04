@@ -1,4 +1,4 @@
-# ExplorerKB
+# Explorer Keyboard RxCT
 
 ![Explorer Keyboard RxCT](https://github.com/DreaM117er/Explorer-Keyboard-RxCT/blob/main/image0.jpg)
 
