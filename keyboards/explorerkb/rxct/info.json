@@ -3,10 +3,7 @@
     "keyboard_name": "Explorer Keyboard RxCT",
     "maintainer": "DreaM117er",
     "processor": "atmega32u4",
-    "split": {
-        "soft_serial_pin": "D2"
-    },
-    "bootloader": "caterina"
+    "bootloader": "caterina",
     "url": "",
     "usb": {
         "device_version": "1.0.0",
