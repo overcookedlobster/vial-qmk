@@ -11,11 +11,15 @@ A spilt keyboard fully supported camara tripod, based on 4x5/3x5 main matrix, op
 
 Make example for this keyboard (after setting up your build environment):
 
-    make explorerkb:default
+    make explorerkb/rxct:default
 
 Flashing example for this keyboard:
 
-    make explorerkb:default:flash
+    make explorerkb/rxct:default:flash
+    
+Make example for VIAL supported (after setting up your VIAL build environment):
+
+    make exolorerkb/rxct:vial
 
 See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start with our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).
 
