@@ -1,6 +1,6 @@
 # Explorer Keyboard RxCT
 
-![Explorer Keyboard RxCT](https://github.com/DreaM117er/Explorer-Keyboard-RxCT/blob/main/image0.jpg)
+![Explorer Keyboard RxCT](https://github.com/DreaM117er/Explorer-Keyboard-RxCT/blob/main/image/image0.jpg)
 
 A spilt keyboard fully supported camara tripod, based on 4x5/3x5 main matrix, optional expanded 1 column to be 4x6/3x6 or more; 7 levels adjustable thumb cluster angle basepart, supported 1-4 thumb keys installed.
 
