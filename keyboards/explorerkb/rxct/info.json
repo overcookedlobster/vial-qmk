@@ -1,12 +1,8 @@
 {
     "manufacturer": "DreaM117er",
-    "keyboard_name": "Explorer Keyboard RxCT",
     "maintainer": "DreaM117er",
-    "processor": "atmega32u4",
-    "bootloader": "caterina",
     "url": "",
     "usb": {
-        "device_version": "1.0.0",
         "pid": "0x0000",
         "vid": "0xFEED"
     },

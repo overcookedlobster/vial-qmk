@@ -17,16 +17,21 @@
 
 #pragma once
 
-/* key matrix size */
-// Rows are doubled-up
-#define MATRIX_ROWS 10
-#define MATRIX_COLS 6
+/* Key matrix configuration. */
+#define MATRIX_ROW_PINS \
+    { GP26, GP22, GP20, GP23, GP21 }
+#define MATRIX_COL_PINS \
+    { GP4, GP5, GP6, GP7, GP8, GP9 }
 
-/* Set 0 if debouncing isn't needed */
-#define DEBOUNCE 5
+/* serial.c configuration (for split keyboard). */
+#define SOFT_SERIAL_PIN GP0
 
-#define DIODE_DIRECTION ROW2COL
+/* VBUS detection. */
+#define USB_VBUS_PIN GP19
 
-/* Handedness. */
-#define MASTER_LEFT
+/* Reset. */
+#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
+#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP17
+#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 1000U
+
 

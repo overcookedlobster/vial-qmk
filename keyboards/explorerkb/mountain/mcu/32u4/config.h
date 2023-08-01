@@ -17,16 +17,10 @@
 
 #pragma once
 
-/* key matrix size */
-// Rows are doubled-up
-#define MATRIX_ROWS 10
-#define MATRIX_COLS 6
+/* Key matrix configuration. */
+#define MATRIX_ROW_PINS \
+    { B1, B3, B2, B6 }
+#define MATRIX_COL_PINS \
+    { F7, F6, F5, F4, D3, D0, B5, B4, E6, D7, C6, D4 }
 
-/* Set 0 if debouncing isn't needed */
-#define DEBOUNCE 5
-
-#define DIODE_DIRECTION ROW2COL
-
-/* Handedness. */
-#define MASTER_LEFT
 

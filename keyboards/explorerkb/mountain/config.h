@@ -19,14 +19,11 @@
 
 /* key matrix size */
 // Rows are doubled-up
-#define MATRIX_ROWS 10
-#define MATRIX_COLS 6
+#define MATRIX_ROWS 4
+#define MATRIX_COLS 12
 
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE 5
 
-#define DIODE_DIRECTION ROW2COL
-
-/* Handedness. */
-#define MASTER_LEFT
+#define DIODE_DIRECTION COL2ROW
 
