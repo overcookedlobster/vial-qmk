@@ -21,6 +21,6 @@
 #define MATRIX_ROW_PINS \
     { B1, B3, B2, B6 }
 #define MATRIX_COL_PINS \
-    { F7, F6, F5, F4, D3, D0, B5, B4, E6, D7, C6, D4 }
+    { F7, F6, F5, F4, D3, D1, B5, B4, E6, D7, C6, D4 }
 
 
