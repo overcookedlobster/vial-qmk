@@ -1,6 +1,6 @@
-# Explorer Keyboard Three2One Pad
+# Three2One Pad
 
-![Explorer Keyboard Mountain](https://github.com/DreaM117er/Explorer-Keyboard-Mountian/blob/main/pic/fusion360-layout-default.png)
+![Three2One](https://github.com/DreaM117er/Three2One-Pad/raw/main/pic/info1.png)
 
 A ergonamic keyboard with Planck based, changed stagger layout.
 
@@ -10,10 +10,6 @@ A ergonamic keyboard with Planck based, changed stagger layout.
 ## Building the firmware
 
 Make example for this keyboard (after setting up your build environment):
-
-**ATMega32U4 MCU:**
-
-    make explorerkb/mountain/mcu/32u4:[KEYMAP]
 
 **RP2040 MCU:**
 
