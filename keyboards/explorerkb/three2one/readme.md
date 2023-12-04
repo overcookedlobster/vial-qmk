@@ -1,6 +1,6 @@
 # Three2One Pad
 
-![Three2One](https://github.com/DreaM117er/Three2One-Pad/raw/main/pic/info1.png)
+![Three2One](https://github.com/DreaM117er/Three2One-Pad/raw/main/pic/rp0.jpg)
 
 A ergonamic keyboard with Planck based, changed stagger layout.
 
