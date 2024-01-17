@@ -1,6 +1,6 @@
 # Mag-Wave44
 
-![Mag-Wave44](https://github.com/DreaM117er/Explorer-Keyboard-Mountian/blob/main/pic/fusion360-layout-default.png)
+![Mag-Wave44](https://github.com/DreaM117er/Mag-Wave44/raw/main/pics/info.png)
 
 A ergonamic keyboard with Planck based, changed stagger layout.
 
