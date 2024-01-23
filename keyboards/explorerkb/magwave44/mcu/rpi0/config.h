@@ -24,18 +24,20 @@
     { GP3, GP4, GP5, GP6, GP7, GP8 }
 
 /* Main Keyboard Hand*/
-#define SPLIT_HAND_PIN GP1
-#define SPLIT_HAND_PIN_LOW_IS_RIGHT
+#define USE_SERIAL
+#define SERIAL_USE_MULTI_TRANSACTION
+#define SOFT_SERIAL_PIN GP1
+#define MASTER_LEFT
 
-/* Encoder EC-11 */
+/* Encoder EC-11 */        
 #define ENCODERS_PAD_A { GP29 }
 #define ENCODERS_PAD_B { GP28 }
+#define ENCODER_RESOLUTION 2
 #define ENCODERS_PAD_A_RIGHT { GP29 }
 #define ENCODERS_PAD_B_RIGHT { GP28 }
-#define ENCODER_RESOLUTION 2
 #define TAP_CODE_DELAY 10
-//#define ENCODER_DIRECTION_FLIP
 
 
 
 
+ 

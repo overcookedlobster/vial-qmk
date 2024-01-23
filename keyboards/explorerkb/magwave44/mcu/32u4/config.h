@@ -24,6 +24,8 @@
     { D4, C6, D7, E6, B4, B5 }
 
 /* Main Keyboard Hand*/
+#define USE_SERIAL
+#define SERIAL_USE_MULTI_TRANSACTION
 #define SOFT_SERIAL_PIN D2
 #define MASTER_LEFT
 
