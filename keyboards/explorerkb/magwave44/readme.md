@@ -2,7 +2,7 @@
 
 ![MagWave44](https://github.com/DreaM117er/Mag-Wave44/raw/main/pics/info.jpg)
 
-A ergonamic keyboard with Planck based, changed stagger layout.
+An ergonamic handwiring keyboard designed on my hands, with 2 rotray encoders at the both side.
 
 * Keyboard Maintainer: [DreaM117er](https://github.com/DreaM117er)
 * Keymap Supported: QMK, VIAL
