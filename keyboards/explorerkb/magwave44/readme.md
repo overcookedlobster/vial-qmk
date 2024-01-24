@@ -1,6 +1,6 @@
-# Mag-Wave44
+# MagWave44
 
-![Mag-Wave44](https://github.com/DreaM117er/Mag-Wave44/raw/main/pics/info.jpg)
+![MagWave44](https://github.com/DreaM117er/Mag-Wave44/raw/main/pics/info.jpg)
 
 A ergonamic keyboard with Planck based, changed stagger layout.
 
@@ -23,7 +23,7 @@ Make example for this keyboard (after setting up your build environment):
 
     make explorerkb/magwave44/mcu/rpi0:[KEYMAP]
 
-**RP2040-Matrix series MCU: (with 5x5+5x5 RGB matrix)**
+**RP2040-Matrix MCU: (with 5x5 RGB matrix leds)**
 
     make explorerkb/magwave44/mcu/rpim:[KEYMAP]
 
