@@ -27,9 +27,9 @@
 #define USE_SERIAL
 #define SERIAL_USE_MULTI_TRANSACTION
 #define SOFT_SERIAL_PIN GP1
-#define MASTER_LEFT
+#define MASTER_RIGHT
 
-/* Encoder EC-11 */        
+/* Encoder EC-11 */
 #define ENCODERS_PAD_A { GP29 }
 #define ENCODERS_PAD_B { GP28 }
 #define ENCODER_RESOLUTION 2
@@ -40,4 +40,3 @@
 
 
 
- 

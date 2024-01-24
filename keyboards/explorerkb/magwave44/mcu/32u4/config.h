@@ -27,7 +27,7 @@
 #define USE_SERIAL
 #define SERIAL_USE_MULTI_TRANSACTION
 #define SOFT_SERIAL_PIN D2
-#define MASTER_LEFT
+#define MASTER_RIGHT
 
 /* Encoder EC-11 */
 #define ENCODERS_PAD_A { F6 }
