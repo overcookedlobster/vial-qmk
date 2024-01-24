@@ -1,6 +1,6 @@
 # Mag-Wave44
 
-![Mag-Wave44](https://github.com/DreaM117er/Mag-Wave44/raw/main/pics/info.png)
+![Mag-Wave44](https://github.com/DreaM117er/Mag-Wave44/raw/main/pics/info.jpg)
 
 A ergonamic keyboard with Planck based, changed stagger layout.
 
