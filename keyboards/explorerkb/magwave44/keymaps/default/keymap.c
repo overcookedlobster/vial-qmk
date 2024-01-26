@@ -28,7 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         KC_LCTL, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_QUOT,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        XXXXXXX, KC_LALT, MO(1), KC_SPC, KC_RSFT, MO(2), TO(1), KC_KB_MUTE
+        TO(1), KC_LALT, MO(1), KC_SPC, KC_RSFT, MO(2), MO(1), KC_KB_MUTE
         //`--------------------------'  `--------------------------'
         ),
 
@@ -40,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         KC_LCTL, KC_DOT, KC_7, KC_8, KC_9, KC_0, KC_LBRC, KC_RBRC, KC_TRNS, KC_TRNS, KC_BSLS, KC_TRNS,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        XXXXXXX, OSM(MOD_LALT), KC_LGUI, KC_ENT, KC_RSFT, KC_TRNS, TO(0), KC_TRNS
+        TO(0), OSM(MOD_LALT), KC_LGUI, KC_ENT, KC_RSFT, KC_TRNS, KC_TRNS, KC_TRNS
         //`--------------------------'  `--------------------------'
         ),
 
@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         KC_TRNS, XXXXXXX, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_F7, KC_F8, KC_F9, KC_F10, XXXXXXX, KC_TRNS,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        XXXXXXX, KC_TRNS, KC_LGUI, KC_TRNS, KC_TRNS, KC_TRNS, TO(3), KC_TRNS
+        TO(3), KC_TRNS, KC_LGUI, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
         //`--------------------------'  `--------------------------'
         ),
 
@@ -64,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, NK_TOGG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RGB_TOG, RGB_RMOD, TO(0), XXXXXXX
+        TO(0), XXXXXXX, XXXXXXX, XXXXXXX, RGB_TOG, RGB_RMOD, XXXXXXX, KC_TRNS
         //`--------------------------'  `--------------------------'
         )
 };
@@ -78,7 +78,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
             },
     [1] =   {
             //Encoder 1
-            // ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
+            ENCODER_CCW_CW(KC_TRNS, KC_TRNS),
             //Encoder 2
             ENCODER_CCW_CW(KC_TRNS, KC_TRNS)
             },

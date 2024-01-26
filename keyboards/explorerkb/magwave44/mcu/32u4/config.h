@@ -27,12 +27,12 @@
 #define USE_SERIAL
 #define SERIAL_USE_MULTI_TRANSACTION
 #define SOFT_SERIAL_PIN D2
-#define MASTER_RIGHT
+#define MASTER_LEFT
 
 /* Encoder EC-11 */
-#define ENCODERS_PAD_A { F6 }
-#define ENCODERS_PAD_B { F7 }
+#define ENCODERS_PAD_A { F7 }
+#define ENCODERS_PAD_B { F6 }
 #define ENCODERS_PAD_A_RIGHT { F6 }
 #define ENCODERS_PAD_B_RIGHT { F7 }
-#define ENCODER_RESOLUTION 2
+#define ENCODER_RESOLUTION 1
 #define TAP_CODE_DELAY 10
