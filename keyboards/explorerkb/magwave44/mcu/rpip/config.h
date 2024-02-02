@@ -32,7 +32,7 @@
 /* Encoder EC-11 */
 #define ENCODERS_PAD_A { GP28 }
 #define ENCODERS_PAD_B { GP29 }
-#define ENCODER_RESOLUTION 1
+#define ENCODER_RESOLUTION 2
 #define ENCODERS_PAD_A_RIGHT { GP29 }
 #define ENCODERS_PAD_B_RIGHT { GP28 }
 #define TAP_CODE_DELAY 10

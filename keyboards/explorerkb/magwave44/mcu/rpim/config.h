@@ -32,14 +32,14 @@
 /* Encoder EC-11 */
 #define ENCODERS_PAD_A { GP28 }
 #define ENCODERS_PAD_B { GP29 }
-#define ENCODER_RESOLUTION 1
+#define ENCODER_RESOLUTION 2
 #define ENCODERS_PAD_A_RIGHT { GP29 }
 #define ENCODERS_PAD_B_RIGHT { GP28 }
 #define TAP_CODE_DELAY 10
 
 /* ws2812 RGB LED */
-#define RGB_DI_PIN GP16
-#define RGBLED_NUM 50
+#define WS2812_DI_PIN GP16
+#define RGB_MATRIX_LED_COUNT 50
 #define RGBLED_SPLIT \
     { 25, 25 }
 

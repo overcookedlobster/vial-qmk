@@ -14,7 +14,7 @@ SERIAL_DRIVER = vendor
 WS2812_DRIVER = vendor
 
 RGB_MATRIX_ENABLE = yes
-RGB_MATRIX_DRIVER = WS2812
+RGB_MATRIX_DRIVER = ws2812
 RGB_MATRIX_SUPPORTED = yes  # RGB matrix is supported and enabled by default
 RGBLIGHT_SUPPORTED = yes    # RGB underglow is supported, but not enabled by default
 RGBLIGHT_ENABLE = no
