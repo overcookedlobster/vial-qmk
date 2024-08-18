@@ -1,6 +1,6 @@
 # Explorer Keyboard Blank
 
-![Blank]()
+![Blank](https://github.com/DreaM117er/Explorer-Keyboard-Blank/raw/main/pic/info/info4.jpg)
 
 The 3rd. Explorer Keyboard series, a Plank like split keyboard with muti-unit.
 
