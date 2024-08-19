@@ -17,23 +17,11 @@
 
 #pragma once
 
-/* key matrix size */
-// Rows are doubled-up
-#define MATRIX_ROWS 3
-#define MATRIX_COLS 4
-
-/* Key matrix configuration. */
-#define MATRIX_ROW_PINS \
-    { GP12, GP13, GP14 }
-#define MATRIX_COL_PINS \
-    { GP8, GP9, GP10, GP11 }
-
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE 5
-#define DIODE_DIRECTION COL2ROW
 
 /* Encoder EC-11 */
 #define ENCODERS_PAD_A { GP0, GP2, GP4 ,GP6 }
 #define ENCODERS_PAD_B { GP1, GP3, GP5 ,GP7 }
-#define ENCODER_RESOLUTION 2
+#define ENCODER_RESOLUTION 4
 #define TAP_CODE_DELAY 10
