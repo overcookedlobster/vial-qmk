@@ -17,12 +17,9 @@
 
 #pragma once
 
-/* Key matrix configuration. */
-#define MATRIX_ROW_PINS \
-    { F7, B1, B3, B2, B6 }
-#define MATRIX_COL_PINS \
-    { D4, C6, D7, E6, B4, B5 }
+/* Set 0 if debouncing isn't needed */
+#define DEBOUNCE 5
 
-/* serial.c configuration (for split keyboard). */
-#define SOFT_SERIAL_PIN D2
+/* Handedness. */
+#define MASTER_LEFT
 
