@@ -1,6 +1,6 @@
 # OpeNero65
 
-![OpeNero65](https://github.com/DreaM117er/Openero65/raw/main/pic/info0.png)
+![OpeNero65](https://github.com/DreaM117er/Openero65/raw/main/pic/rp0.png)
 
 ANSI-Layout custom keyboard used RP2040Zero/RP2040SuperMini MCU, with 65/66 keys, hot-swap supported.
 
