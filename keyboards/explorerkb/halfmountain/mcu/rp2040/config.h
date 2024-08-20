@@ -17,16 +17,6 @@
 
 #pragma once
 
-/* Key matrix configuration. */
-#define MATRIX_ROW_PINS \
-    { GP22, GP20, GP23, GP21 }
-#define MATRIX_COL_PINS \
-    { GP26, GP27, GP28, GP29, GP0, GP2 }
-#define MATRIX_COL_PINS_RIGHT  \
-    { GP4, GP5, GP6, GP7, GP8, GP9 }
-
-#define SOFT_SERIAL_PIN GP1
-
 #define MASTER_LEFT
 
 
