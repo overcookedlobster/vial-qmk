@@ -17,13 +17,6 @@
 
 #pragma once
 
-/* key matrix size */
-// Rows are doubled-up
-#define MATRIX_ROWS 8
-#define MATRIX_COLS 6
-
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE 5
-
-#define DIODE_DIRECTION COL2ROW
 

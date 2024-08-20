@@ -17,16 +17,9 @@
 
 #pragma once
 
-/* Key matrix configuration. */
-#define MATRIX_ROW_PINS \
-    { GP22, GP20, GP23, GP21 }
-#define MATRIX_COL_PINS \
-    { GP4, GP5, GP6, GP7, GP8, GP9 }
-
 /* Main Keyboard Hand*/
 #define USE_SERIAL
 #define SERIAL_USE_MULTI_TRANSACTION
-#define SOFT_SERIAL_PIN GP1
 #define MASTER_LEFT
 
 /* Encoder EC-11 */

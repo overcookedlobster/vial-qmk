@@ -17,16 +17,9 @@
 
 #pragma once
 
-/* Key matrix configuration. */
-#define MATRIX_ROW_PINS \
-    { GP27, GP26, GP15, GP14 }
-#define MATRIX_COL_PINS \
-    { GP3, GP4, GP5, GP6, GP7, GP8 }
-
 /* Main Keyboard Hand*/
 #define USE_SERIAL
 #define SERIAL_USE_MULTI_TRANSACTION
-#define SOFT_SERIAL_PIN GP1
 #define MASTER_LEFT
 
 /* Encoder EC-11 */
@@ -55,7 +48,6 @@
 #define RGB_MATRIX_SPLIT RGBLED_SPLIT
 #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 60
 #define RGB_MATRIX_STARTUP_VAL RGB_MATRIX_MAXIMUM_BRIGHTNESS
-#define RGB_DISABLE_WHEN_USB_SUSPENDED
 #define RGB_MATRIX_FRAMEBUFFER_EFFECTS
 #define RGB_MATRIX_KEYPRESSES
 
