@@ -15,11 +15,15 @@ Make example for this keyboard (after setting up your build environment):
 
     make explorerkb/blank/mcu/rp2040:[KEYMAP]
 
+or
+
     compile -c -kb explorerkb/blank/mcu/rp2040 -km [KEYMAP]
 
 **ATMega32U4 ProMicro supported:**
 
     make explorerkb/blank/mcu/32u4:[KEYMAP]
+
+or
 
     compile -c -kb explorerkb/blank/mcu/32u4 -km [KEYMAP]
 
