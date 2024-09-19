@@ -18,6 +18,7 @@ Make example for this keyboard (after setting up your build environment):
 or
 
     qmk compile -c -kb explorerkb/blank/mcu/rp2040 -km [KEYMAP]
+    qmk compile -c -kb explorerkb/blank/mcu/rp2040 -km v2
 
 **ATMega32U4 ProMicro supported:**
 

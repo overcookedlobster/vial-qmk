@@ -1,16 +1,28 @@
 #include QMK_KEYBOARD_H
 
-// Layer definitions
 #define DEFAULT 0
 #define RAISE   1
 #define LOWER   2
 #define WORKSPACE 3
 #define SHORTCUTS 4
 
-// Custom keycode for CTRL_SHIFT behavior
 enum custom_keycodes {
     CTRL_SHIFT = SAFE_RANGE,
+    ENC_MODE,
+    ENC_LEFT,
+    ENC_RIGHT,
 };
+
+enum encoder_modes {
+    ENC_MODE_VOLUME,
+    ENC_MODE_SCROLL,
+    ENC_MODE_MOUSE,
+    ENC_MODE_COUNT
+};
+
+static uint8_t encoder_mode = ENC_MODE_VOLUME;
+
+void cycle_encoder_mode(void);
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -26,18 +38,52 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             unregister_code(KC_LCTL);
         }
         return false;
+    case ENC_MODE:
+        if (record->event.pressed) {
+            cycle_encoder_mode();
+        }
+        return false;
+    case ENC_LEFT:
+        if (record->event.pressed) {
+            switch (encoder_mode) {
+                // case ENC_MODE_VOLUME:
+                //     tap_code(KC_VOLD);
+                //     break;
+                case ENC_MODE_SCROLL:
+                    tap_code(KC_MS_WH_UP);
+                    break;
+                case ENC_MODE_MOUSE:
+                    tap_code(KC_BTN1);
+                    break;
+            }
+        }
+        return false;
+    case ENC_RIGHT:
+        if (record->event.pressed) {
+            switch (encoder_mode) {
+                // case ENC_MODE_VOLUME:
+                //     tap_code(KC_VOLU);
+                //     break;
+                case ENC_MODE_SCROLL:
+                    tap_code(KC_MS_WH_DOWN);
+                    break;
+                case ENC_MODE_MOUSE:
+                    tap_code(KC_BTN2);
+                    break;
+            }
+        }
+        return false;
     default:
         return true;
     }
 }
-
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [DEFAULT] = LAYOUT(
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    LGUI_T(KC_DEL),
         LT(LOWER,KC_ESC), KC_A,    KC_S,    KC_D,    KC_F,    KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, LT(WORKSPACE,KC_QUOT),
         KC_RSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, LSFT_T(KC_CAPS),
-        KC_LCTL, KC_LALT, KC_LGUI, KC_LALT, ALT_T(KC_DEL), LGUI_T(KC_ENT), KC_BTN2 , LT(SHORTCUTS,KC_RSFT), KC_SPC, LT(RAISE,KC_BSPC), ALT_T(KC_BSLS), KC_RALT, KC_RGUI, KC_RALT
+        KC_LCTL, KC_VOLD, KC_LGUI, KC_LALT, ALT_T(KC_DEL), LGUI_T(KC_ENT), ENC_MODE , LT(SHORTCUTS,KC_RSFT), KC_SPC, LT(RAISE,KC_BSPC), ALT_T(KC_BSLS), KC_RALT, KC_VOLU, KC_RALT
     ),
 
     [RAISE] = LAYOUT(
@@ -69,12 +115,34 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
+void cycle_encoder_mode(void) {
+    encoder_mode = (encoder_mode + 1) % ENC_MODE_COUNT;
+}
+
+bool encoder_update_user(uint8_t index, bool clockwise) {
+    if (index == 0) {
+        if (clockwise) {
+            tap_code16(ENC_RIGHT);
+        } else {
+            tap_code16(ENC_LEFT);
+        }
+    } else if (index == 1) {
+        if (clockwise) {
+            tap_code(KC_MS_WH_DOWN);
+        } else {
+            tap_code(KC_MS_WH_UP);
+        }
+    }
+    return true;
+}
+
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-    [DEFAULT] =   { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN) },
+    [DEFAULT] =   { ENCODER_CCW_CW(ENC_LEFT, ENC_RIGHT), ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN) },
     [RAISE] =     { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
     [LOWER] =     { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
     [WORKSPACE] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
     [SHORTCUTS] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
 };
 #endif
+
