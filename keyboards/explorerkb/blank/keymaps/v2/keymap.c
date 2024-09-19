@@ -16,7 +16,7 @@ enum custom_keycodes {
 enum encoder_modes {
     ENC_MODE_VOLUME,
     ENC_MODE_SCROLL,
-    ENC_MODE_MOUSE,
+    // ENC_MODE_MOUSE,
     ENC_MODE_COUNT
 };
 
@@ -46,30 +46,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case ENC_LEFT:
         if (record->event.pressed) {
             switch (encoder_mode) {
-                // case ENC_MODE_VOLUME:
-                //     tap_code(KC_VOLD);
-                //     break;
+                case ENC_MODE_VOLUME:
+                    tap_code(KC_VOLD);
+                    break;
                 case ENC_MODE_SCROLL:
                     tap_code(KC_MS_WH_UP);
                     break;
-                case ENC_MODE_MOUSE:
-                    tap_code(KC_BTN1);
-                    break;
+                // case ENC_MODE_MOUSE:
+                //     tap_code(KC_BTN1);
+                //     break;
             }
         }
         return false;
     case ENC_RIGHT:
         if (record->event.pressed) {
             switch (encoder_mode) {
-                // case ENC_MODE_VOLUME:
-                //     tap_code(KC_VOLU);
-                //     break;
+                case ENC_MODE_VOLUME:
+                    tap_code(KC_VOLU);
+                    break;
                 case ENC_MODE_SCROLL:
                     tap_code(KC_MS_WH_DOWN);
                     break;
-                case ENC_MODE_MOUSE:
-                    tap_code(KC_BTN2);
-                    break;
+                // case ENC_MODE_MOUSE:
+                //     tap_code(KC_BTN2);
+                //     break;
             }
         }
         return false;
@@ -83,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    LGUI_T(KC_DEL),
         LT(LOWER,KC_ESC), KC_A,    KC_S,    KC_D,    KC_F,    KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, LT(WORKSPACE,KC_QUOT),
         KC_RSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, LSFT_T(KC_CAPS),
-        KC_LCTL, KC_VOLD, KC_LGUI, KC_LALT, ALT_T(KC_DEL), LGUI_T(KC_ENT), ENC_MODE , LT(SHORTCUTS,KC_RSFT), KC_SPC, LT(RAISE,KC_BSPC), ALT_T(KC_BSLS), KC_RALT, KC_VOLU, KC_RALT
+        KC_LCTL, KC_BTN1, KC_LGUI, KC_LALT, ALT_T(KC_DEL), LGUI_T(KC_ENT), ENC_MODE , LT(SHORTCUTS,KC_RSFT), KC_SPC, LT(RAISE,KC_BSPC), ALT_T(KC_BSLS), KC_RALT, KC_BTN2, KC_RALT
     ),
 
     [RAISE] = LAYOUT(
