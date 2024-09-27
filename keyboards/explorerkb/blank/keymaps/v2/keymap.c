@@ -11,16 +11,19 @@ enum custom_keycodes {
     ENC_MODE,
     ENC_LEFT,
     ENC_RIGHT,
+    PASSWORD,
 };
 
 enum encoder_modes {
-    ENC_MODE_VOLUME,
     ENC_MODE_SCROLL,
+    ENC_MODE_VOLUME,
     // ENC_MODE_MOUSE,
     ENC_MODE_COUNT
 };
 
-static uint8_t encoder_mode = ENC_MODE_VOLUME;
+static uint8_t encoder_mode = ENC_MODE_SCROLL;
+static uint16_t custom_key_timer;
+static bool is_custom_key_pressed;
 
 void cycle_encoder_mode(void);
 
@@ -73,17 +76,34 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
         }
         return false;
+    case PASSWORD:
+        if (record->event.pressed) {
+            is_custom_key_pressed = true;
+            custom_key_timer = timer_read();
+        } else {
+            if (is_custom_key_pressed) {
+                if (timer_elapsed(custom_key_timer) < TAPPING_TERM) {
+                    SEND_STRING("1234qwer");
+                } else {
+                    register_code(KC_LGUI);
+                    unregister_code(KC_LGUI);
+                }
+                is_custom_key_pressed = false;
+            }
+        }
+        return false;
     default:
         return true;
     }
 }
 
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [DEFAULT] = LAYOUT(
-        KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    LGUI_T(KC_DEL),
+        KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    LGUI_T(PASSWORD),
         LT(LOWER,KC_ESC), KC_A,    KC_S,    KC_D,    KC_F,    KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, LT(WORKSPACE,KC_QUOT),
         KC_RSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, LSFT_T(KC_CAPS),
-        KC_LCTL, KC_BTN1, KC_LGUI, KC_LALT, ALT_T(KC_DEL), LGUI_T(KC_ENT), ENC_MODE , LT(SHORTCUTS,KC_RSFT), KC_SPC, LT(RAISE,KC_BSPC), ALT_T(KC_BSLS), KC_RALT, KC_BTN2, KC_RALT
+        KC_LCTL, KC_BTN1, LT(SHORTCUTS,KC_BTN1), KC_LALT, ALT_T(KC_DEL), LGUI_T(KC_ENT), ENC_MODE , LT(SHORTCUTS,KC_RSFT), KC_SPC, LT(RAISE,KC_BSPC), ALT_T(KC_BSLS), KC_BTN2, KC_BTN2, KC_RALT
     ),
 
     [RAISE] = LAYOUT(
