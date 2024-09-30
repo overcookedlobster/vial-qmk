@@ -1,0 +1,977 @@
+
+
+==================================================
+File: vial.json
+==================================================
+
+{
+    "name": "Mei's 65% KB",
+    "vendorId": "0x808",
+    "productId": "0x5656",
+    "lighting": "none",
+    "matrix": {"rows": 5, "cols": 16},
+    "layouts": {
+        "keymap": [
+            [{"y":0.25,"x":13.75},"0,14",{"x":0.25},"2,15",{"x":0.25},"0,0\n\n\n\n\n\n\n\n\ne","0,1\n\n\n\n\n\n\n\n\ne"],
+            [{"y":0.25},"0,0","0,1","0,2","0,3","0,4","0,5","0,6","0,7","0,8","0,9","0,10","0,11","0,12",{"w":2},"0,14\n\n\n0,0","0,15",{"x":0.25},"1,0\n\n\n\n\n\n\n\n\ne","1,1\n\n\n\n\n\n\n\n\ne"],
+            [{"w":1.5},"1,0","1,1","1,2","1,3","1,4","1,5","1,6","1,7","1,8","1,9","1,10","1,11","1,12",{"w":1.5},"1,13\n\n\n1,0","1,14"],
+            [{"w":1.75},"2,0","2,1","2,2","2,3","2,4","2,5","2,6","2,7","2,8","2,9","2,10","2,11",{"w":2.25},"2,13\n\n\n1,0","2,14"],
+            [{"w":2.25},"3,0\n\n\n2,0","3,2","3,3","3,4","3,5","3,6","3,7","3,8","3,9","3,10","3,11",{"w":1.75},"3,12","3,13","3,14"],
+            [{"w":1.25},"4,0\n\n\n3,0",{"w":1.25},"4,1\n\n\n3,0",{"w":1.25},"4,2\n\n\n3,0",{"w":6.25},"4,6\n\n\n3,0",{"w":1.25},"4,10\n\n\n3,0",{"w":1.25},"4,11\n\n\n3,0",{"x":0.5},"4,12","4,13","4,14"]
+        ]
+    },
+    "encoder": {
+        "rotary": [
+            {"pin_a": "D4", "pin_b": "C6"},
+            {"pin_a": "F4", "pin_b": "F5"}
+        ]
+    }
+}
+
+
+==================================================
+File: rules.mk
+==================================================
+
+VIA_ENABLE = yes
+VIAL_ENABLE = yes
+VIAL_INSECURE = yes
+
+OLED_ENABLE = yes
+ENCODER_ENABLE = yes
+ENCODER_MAP_ENABLE = yes
+
+EXTRAFLAGS += -flto
+EXTRAKEY_ENABLE = yes
+CONSOLE_ENABLE = no
+COMMAND_ENABLE = no
+
+WPM_ENABLE = yes
+LTO_ENABLE = yes
+QMK_SETTINGS = no
+KEY_OVERRIDE_ENABLE = no
+COMBO_ENABLE = no
+TAP_DANCE_ENABLE = no
+
+
+
+==================================================
+File: concatenated.txt
+==================================================
+
+
+
+==================================================
+File: gombalan.h
+==================================================
+
+const char *advice_list[] = {
+"Hey Dr. Heartbreaker, got any cures for falling head over heels?",
+ "Mei-Mei, your smile is more refreshing than mountain air!",
+ "Is your medical degree in being irresistible?",
+ "I hear you climb mountains, but you've already reached the peak of cuteness",
+ "Dr. Tanuwijaya, I think I need a check-up for butterflies in my stomach",
+ "Mei-Mei, are you a trail? Because I'd follow you anywhere",
+ "Your bedside manner is giving me palpitations",
+ "Is hiking your second favorite cardio after making hearts race?",
+ "Dr. Mei-Mei, your presence is better than any medicine",
+ "You must be an expert in anatomy, because you've got my heart all figured out",
+ "Mei-Mei, are you a mountain view? Because you're breathtaking",
+ "I think I need a doctor's note to excuse me from falling for you",
+ // "Your hiking boots must be magic, they've walked right into my heart",
+ // "Dr. Tanuwijaya, is flirtation covered by my insurance?",
+ // "Mei-Mei, you've scaled the heights of charm!",
+ // "Is your stethoscope picking up the sound of my heart skipping a beat?",
+ // "You must be in great shape from carrying around all that medical knowledge",
+ // "Mei-Mei, your smile could light up the darkest hiking trail",
+ // "Dr. Heartstealer, what's your prescription for a crush?",
+ // "You've hiked your way to the summit of my affections",
+ // "Mei-Mei, is your medical specialty in being adorable?",
+ // "I think I need a check-up, I can't stop thinking about you",
+ // "Your bedside manner is making me weak in the knees",
+ // "Dr. Tanuwijaya, you're the cure for a dull day",
+ // "Mei-Mei, are you a compass? Because you're guiding me to happiness",
+ // "Is your medical coat designer? Because you make it look so good",
+ // "You must be tired from running through my mind all day",
+ // "Dr. Mei-Mei, your intelligence is as attractive as your smile",
+ // "I'd climb any mountain to see that gorgeous face",
+ // "Mei-Mei, did it hurt when you fell from the top of that hiking trail?",
+ // "Your diagnosis: Chronic cuteness overload",
+ // "Dr. Tanuwijaya, I think I'm allergic to your charm",
+ // "Mei-Mei, you've got the perfect balance of brains and beauty",
+ // "Is your hiking backpack full of stolen hearts?",
+ // "Dr. Heartbreaker, got any band-aids? You've got me falling for you",
+ // "Mei-Mei, your energy could power a whole hospital",
+ // "Your medical knowledge is impressive, but your charm is off the charts",
+ // "I'd trade all the mountain views just to see your smile",
+ // "Dr. Tanuwijaya, is flirting a form of preventative medicine?",
+ // "Mei-Mei, you must be exhausted from running through my dreams all night",
+ // "Your bedside manner is making my heart rate spike",
+ // "Dr. Mei-Mei, I think I need a prescription for more of your company",
+ // "Is your hiking trail rated difficult? Because you're hard to get over",
+ // "Mei-Mei, your laughter is more refreshing than a mountain stream",
+ // "Dr. Tanuwijaya, I think I'm coming down with a case of the butterflies",
+ // "You must be a great doctor, you've already cured my boredom",
+ // "Mei-Mei, are you a rare plant? Because you're one of a kind",
+ // "Your medical skills are impressive, but your charm is the real lifesaver",
+ // "Dr. Heartstealer, what's the treatment for being lovestruck?",
+ // "Mei-Mei, you've reached the peak of adorableness",
+ // "Is your stethoscope picking up how fast you make my heart beat?",
+ // "Dr. Tanuwijaya, I might need CPR after seeing your smile",
+ // "Mei-Mei, you must be a pro at taking pulses, because you've got mine racing",
+ // "Your hiking boots must be made for walking into people's hearts",
+ // "Dr. Mei-Mei, is charm one of your medical specialties?",
+ // "I'd brave any treacherous trail just to spend time with you",
+ // "Mei-Mei, your personality is as refreshing as mountain air",
+ // "Dr. Tanuwijaya, I think I need a second opinion on how cute you are",
+ // "Is your medical coat magical? Because you've cast a spell on me",
+ // "Mei-Mei, you must be tired from climbing to the top of my mind",
+ // "Your bedside manner is giving me a chronic case of the smiles",
+ // "Dr. Heartbreaker, what's your remedy for being head over heels?",
+ // "Mei-Mei, you've conquered the mountain of my affections",
+ // "Is your medical degree in being irresistibly charming?",
+ // "Dr. Tanuwijaya, I think I need a check-up for these fuzzy feelings",
+ // "Mei-Mei, are you a compass? Because you're pointing me towards happiness",
+ // "Your hiking skills must be top-notch, you've navigated right to my heart",
+ // "Dr. Mei-Mei, is there a cure for being smitten?",
+ // "I'd follow your trail markers anywhere",
+ // "Mei-Mei, your smile could light up the darkest hospital corridor",
+ // "Dr. Tanuwijaya, I think I'm allergic to how adorable you are",
+ // "Is your backpack heavy? It must be full of admirers",
+ // "Mei-Mei, you've scaled the heights of cuteness",
+ // "Your medical knowledge is impressive, but your wit is the real showstopper",
+ // "Dr. Heartstealer, got any treatments for a racing heart?",
+ // "Mei-Mei, are you a rare medicinal plant? Because you're one in a million",
+ // "Is your hiking pace always this heart-racing?",
+ // "Dr. Tanuwijaya, I think I need a prescription for more of your jokes",
+ // "Mei-Mei, your charm could move mountains",
+ // "Your stethoscope must be broken, it's not picking up how hard I've fallen",
+ // "Dr. Mei-Mei, is being delightful one of your side effects?",
+ // "I'd brave any medical procedure just to see your smile",
+ // "Mei-Mei, you must be an expert in matters of the heart",
+ // "Dr. Tanuwijaya, I think I need a referral to the department of admirers",
+ // "Is your hiking trail rated 'Extremely Charming'?",
+ // "Mei-Mei, your personality is as uplifting as reaching a mountain peak",
+ // "Dr. Heartbreaker, what's your diagnosis for these butterflies?",
+ // "Your medical skills are impressive, but your charisma is the real lifesaver",
+ // "Mei-Mei, are you a rare species? Because you're truly one of a kind",
+ // "Is your lab coat designer? Because you make it look so good",
+ // "Dr. Tanuwijaya, I might need some oxygen after you take my breath away",
+ // "Mei-Mei, you must be a pro at taking heart rates, because you've got mine racing",
+ // "Your hiking boots must be magic, they've walked right into my dreams",
+ // "Dr. Mei-Mei, is being adorable covered by my insurance?",
+ // "I'd climb any medical textbook mountain to impress you",
+ // "Mei-Mei, your smile is more rejuvenating than a day in nature",
+ // "Dr. Tanuwijaya, I think I need a second opinion on how wonderful you are",
+ // "Is your medical coat enchanted? Because you've cast a spell on me",
+ // "Mei-Mei, you must be tired from running through my thoughts all day",
+ // "Your bedside manner is giving me a chronic case of happiness",
+ // "Dr. Heartstealer, what's your prescription for being lovestruck?",
+ // "Mei-Mei, you've reached the summit of charm",
+ // "Is your medical degree in being unforgettably cute?",
+ // "Dr. Tanuwijaya, I think I need a check-up for these warm fuzzy feelings",
+ // "Mei-Mei, are you a trail map? Because you're guiding me to joy",
+ // "Your hiking skills must be incredible, you've navigated straight to my affections",
+ // "Dr. Mei-Mei, is there a treatment for being totally enchanted?",
+ // "I'd follow your medical advice anywhere",
+ // "Mei-Mei, your laughter could brighten up any emergency room",
+ // "Dr. Tanuwijaya, I think I'm coming down with a case of the smittens",
+ // "Is your backpack full of stolen hearts from fellow hikers?",
+ // "Mei-Mei, you've climbed to the peak of adorableness",
+ // "Your medical expertise is impressive, but your personality is the real cure",
+ // "Dr. Heartbreaker, got any remedies for feeling weak in the knees?",
+ // "Mei-Mei, are you a rare medical discovery? Because you're priceless",
+ // "Is your hiking pace always this heart-fluttering?",
+ // "Dr. Tanuwijaya, I think I need a prescription for more of your company",
+ // "Mei-Mei, your charm could move medical mountains",
+ // "Your stethoscope must be malfunctioning, it's not detecting how hard I've fallen",
+ // "Dr. Mei-Mei, is being utterly delightful one of your specialties?",
+ // "I'd face any medical procedure just to see that beautiful smile",
+ // "Mei-Mei, you must be an expert in cardiac care, because you've captured my heart",
+ // "Dr. Tanuwijaya, I think I need a referral to the department of admirers",
+ // "Is your favorite hiking trail called 'Stealing Hearts'?",
+ // "Mei-Mei, your energy is as invigorating as reaching a mountain summit",
+ // "Dr. Heartbreaker, what's your diagnosis for these fluttering feelings?",
+ // "Your medical skills are impressive, but your charm is the true healing power",
+ // "Mei-Mei, are you a rare species of doctor? Because you're truly exceptional",
+ // "Is your lab coat enchanted? Because you look magical in it",
+ // "Dr. Tanuwijaya, I might need some medical attention after you take my breath away",
+ // "Mei-Mei, you must be a cardiology expert, because you've got my heart racing",
+ // "Your hiking boots must be special, they've walked right into my affections",
+ // "Dr. Mei-Mei, is being irresistible part of your medical training?",
+ // "I'd study any medical textbook just to have a conversation with you",
+ // "Mei-Mei, your presence is more refreshing than a cool mountain breeze",
+ // "Dr. Tanuwijaya, I think I need a thorough examination of these feelings for you",
+ // "Is your medical coat made of boyfriend material?",
+ // "Mei-Mei, you must be tired from hiking through my daydreams",
+ // "Your bedside manner is giving me a severe case of admiration",
+ // "Dr. Heartstealer, what's your prescription for a racing pulse?",
+ // "Mei-Mei, you've scaled the heights of my esteem",
+ // "Is your medical degree in being unforgettably charming?",
+ // "Dr. Tanuwijaya, I think I need a check-up for this rapid heartbeat",
+ // "Mei-Mei, are you a GPS? Because you're always leading me to happiness",
+ // "Your trail-blazing skills must be top-notch, you've found a path to my heart",
+ // "Dr. Mei-Mei, is there a cure for being completely captivated?",
+ // "I'd follow your medical lectures anywhere",
+ // "Mei-Mei, your smile could power an entire hospital",
+ // "Dr. Tanuwijaya, I think I'm experiencing symptoms of major attraction",
+ // "Is your hiking backpack full of medical marvels and stolen hearts?",
+ // "Mei-Mei, you've ascended to the apex of allure",
+ // "Your medical knowledge is impressive, but your wit is the real remedy",
+ // "Dr. Heartbreaker, got any treatments for butterflies in the stomach?",
+ // "Mei-Mei, are you a medical miracle? Because you're simply incredible",
+ // "Is your hiking tempo always this pulse-quickening?",
+ // "Dr. Tanuwijaya, I think I need a prescription for daily doses of your charm",
+ // "Mei-Mei, your appeal could revolutionize medical science",
+ // "Your stethoscope must be faulty, it's not registering my skipping heartbeats",
+ // "Dr. Mei-Mei, is being absolutely delightful part of your medical oath?",
+ // "I'd conquer any medical challenge just to earn your admiration",
+ // "Mei-Mei, you must be a master of hearts, both medical and romantic",
+ // "Dr. Tanuwijaya, I think I need a referral to the specialist of your affections",
+ // "Is your favorite hiking path the 'Trail of Enchantment'?",
+ // "Mei-Mei, your spirit is as uplifting as conquering the toughest mountain",
+ // "Dr. Heartbreaker, what's your diagnosis for this chronic case of admiration?",
+ // "Mei-Mei, is your smile powered by sunbeams?",
+ // "Do you have a map? I keep getting lost in your eyes",
+ // "Melyana, you must be a magician because everyone else disappears when you're around",
+ // "Is your name Wi-Fi? Because I'm really feeling a connection",
+ // "Mei-Mei, are you made of copper and tellurium? Because you're Cu-Te",
+ // "Melyana, do you have a Band-Aid? I just scraped my knee falling for you",
+ // "Are you a camera? Every time I look at you, I smile",
+ // "Mei-Mei, is your dad a boxer? Because you're a knockout!",
+ // "Do you believe in love at first sight, or should I walk by again?",
+ // "Melyana, are you a parking ticket? Because you've got 'Fine' written all over you",
+ // "Mei-Mei, I'm no photographer, but I can picture us together",
+ // "Is there a rainbow today? I just found the treasure I've been searching for",
+ // "Melyana, are you a bank loan? Because you've got my interest",
+ // "Mei-Mei, do you have a sunburn, or are you always this hot?",
+ // "Are you religious? Because you're the answer to all my prayers",
+ // "Melyana, is your name Google? Because you've got everything I've been searching for",
+ // "Mei-Mei, are you a time traveler? Because I see you in my future",
+ // "Do you have a name, or can I call you mine?",
+ // "Melyana, if being cute was a crime, you'd be guilty as charged",
+ // "Mei-Mei, are you a alien? Because you're out of this world",
+ // "Is there something wrong with my eyes? I can't take them off you",
+ // "Melyana, do you have a map? I just keep getting lost in your eyes",
+ // "Mei-Mei, are you a campfire? Because you're hot and I want s'more",
+ // "Are you a magician? Because whenever I look at you, everyone else disappears",
+ // "Melyana, do you have a pencil? Cause I want to erase your past and write our future",
+ // "Mei-Mei, are you a parking ticket? Because you've got FINE written all over you",
+ // "Is this the Hogwarts Express? Because it feels like you and I are headed somewhere magical",
+ // "Melyana, are you a bank loan? Because you have my interest!",
+ // "Mei-Mei, do you have a Band-Aid? I just scraped my knee falling for you",
+ // "Are you a time traveler? Cause I see you in my future!",
+ // "Melyana, if you were a vegetable you'd be a cute-cumber!",
+ // "Mei-Mei, are you French? Because Eiffel for you",
+ // "Do you have a map? I keep getting lost in your eyes",
+ // "Melyana, are you a camera? Because every time I look at you, I smile",
+ // "Mei-Mei, do you have a name or can I call you mine?",
+ // "Are you a parking ticket? Because you've got FINE written all over you",
+ // "Melyana, if being cute was a crime, you'd be guilty as charged!",
+ // "Mei-Mei, are you a fruit? Because you're a fine-apple!",
+ // "Do you believe in love at first sight, or should I walk by again?",
+ // "Melyana, are you a magician? Because whenever I look at you, everyone else disappears",
+ // "Mei-Mei, do you have a sunburn, or are you always this hot?",
+ // "Are you religious? Because you're the answer to all my prayers",
+ // "Melyana, is your name Wi-Fi? Because I'm really feeling a connection",
+ // "Mei-Mei, are you a camera? Because every time I look at you, I smile",
+ // "Do you have a map? I just keep getting lost in your eyes",
+ // "Melyana, are you a parking ticket? Because you've got 'Fine' written all over you",
+ // "Mei-Mei, if you were a vegetable, you'd be a cute-cumber!",
+ // "Are you a time traveler? Because I see you in my future",
+ // "Melyana, do you have a pencil? Cause I want to erase your past and write our future",
+ // "Mei-Mei, are you made of copper and tellurium? Because you're Cu-Te",
+ // "Is your dad a boxer? Because you're a knockout!",
+ // "Melyana, are you a campfire? Because you're hot and I want s'more",
+ // "Mei-Mei, do you have a Band-Aid? I just scraped my knee falling for you",
+ // "Are you a bank loan? Because you've got my interest",
+ // "Melyana, is your name Google? Because you've got everything I've been searching for",
+ // "Mei-Mei, are you a fruit? Because you're a fine-apple!",
+ // "Do you believe in love at first sight, or should I walk by again?",
+ // "Melyana, if being cute was a crime, you'd be guilty as charged",
+ // "Mei-Mei, are you an interior decorator? Because when I saw you, the entire room became beautiful",
+ // "Is there an airport nearby or is that just my heart taking off?",
+ // "Melyana, are you a loan? Because you've got my interest!",
+ // "Mei-Mei, do you have a map? I keep getting lost in your eyes",
+ // "Are you a magician? Because whenever I look at you, everyone else disappears",
+ // "Melyana, if you were a vegetable you'd be a cute-cumber!",
+ // "Mei-Mei, are you French? Because Eiffel for you",
+ // "Do you have a name or can I call you mine?",
+ // "Melyana, are you a camera? Because every time I look at you, I smile",
+ // "Mei-Mei, if being cute was a crime, you'd be guilty as charged!",
+ // "Are you a parking ticket? Because you've got FINE written all over you",
+ // "Melyana, do you have a sunburn, or are you always this hot?",
+ // "Mei-Mei, are you religious? Because you're the answer to all my prayers",
+ // "Is your name Wi-Fi? Because I'm really feeling a connection",
+ // "Melyana, are you a fruit? Because you're a fine-apple!",
+ // "Mei-Mei, do you believe in love at first sight, or should I walk by again?",
+ // "Are you a magician? Because whenever I look at you, everyone else disappears",
+ // "Melyana, do you have a pencil? Cause I want to erase your past and write our future",
+ // "Mei-Mei, are you made of copper and tellurium? Because you're Cu-Te",
+ // "Is your dad a boxer? Because you're a knockout!",
+ // "Melyana, are you a campfire? Because you're hot and I want s'more",
+ // "Mei-Mei, do you have a Band-Aid? I just scraped my knee falling for you",
+ // "Are you a bank loan? Because you've got my interest",
+ // "Melyana, is your name Google? Because you've got everything I've been searching for",
+ // "Mei-Mei, are you a time traveler? Because I see you in my future",
+ // "Do you have a name, or can I call you mine?",
+ // "Melyana, if being cute was a crime, you'd be guilty as charged",
+ // "Mei-Mei, are you an alien? Because you're out of this world",
+ // "Is there something wrong with my eyes? I can't take them off you",
+ // "Melyana, do you have a map? I just keep getting lost in your eyes",
+ // "Mei-Mei, are you a parking ticket? Because you've got FINE written all over you",
+ // "Is this the Hogwarts Express? Because it feels like you and I are headed somewhere magical",
+ // "Melyana, are you a loan? Because you have my interest!",
+ // "Mei-Mei, do you have a Band-Aid? I just scraped my knee falling for you",
+ // "Are you a time traveler? Cause I see you in my future!",
+ // "Melyana, if you were a vegetable you'd be a cute-cumber!",
+ // "Mei-Mei, are you French? Because Eiffel for you",
+ // "Do you have a map? I keep getting lost in your eyes",
+ // "Melyana, are you a camera? Because every time I look at you, I smile",
+ // "Mei-Mei, do you have a name or can I call you mine?",
+ // "Are you a parking ticket? Because you've got FINE written all over you",
+ // "Melyana, if being cute was a crime, you'd be guilty as charged!",
+ // "Mei-Mei, are you a fruit? Because you're a fine-apple!",
+ // "Do you believe in love at first sight, or should I walk by again?",
+ // "Melyana, are you a magician? Because whenever I look at you, everyone else disappears",
+ // "Mei-Mei, do you have a sunburn, or are you always this hot?",
+ // "Are you religious? Because you're the answer to all my prayers",
+ // "Melyana, is your name Wi-Fi? Because I'm really feeling a connection",
+ // "Mei-Mei, are you a camera? Because every time I look at you, I smile",
+ // "Do you have a map? I just keep getting lost in your eyes",
+ // "Melyana, are you a parking ticket? Because you've got 'Fine' written all over you",
+ // "Mei-Mei, if you were a vegetable, you'd be a cute-cumber!",
+ // "Are you a time traveler? Because I see you in my future",
+ // "Melyana, do you have a pencil? Cause I want to erase your past and write our future",
+ // "Mei-Mei, are you made of copper and tellurium? Because you're Cu-Te",
+ // "Is your dad a boxer? Because you're a knockout!",
+ // "Melyana, are you a campfire? Because you're hot and I want s'more",
+ // "Mei-Mei, do you have a Band-Aid? I just scraped my knee falling for you",
+ // "Are you a bank loan? Because you've got my interest",
+ // "Melyana, is your name Google? Because you've got everything I've been searching for",
+ // "Mei-Mei, are you a fruit? Because you're a fine-apple!",
+ // "Do you believe in love at first sight, or should I walk by again?",
+ // "Melyana, if being cute was a crime, you'd be guilty as charged",
+ // "Mei-Mei, are you an interior decorator? Because when I saw you, the entire room became beautiful",
+ // "Is there an airport nearby or is that just my heart taking off?",
+ // "Melyana, are you a loan? Because you've got my interest!",
+ // "Mei-Mei, do you have a map? I keep getting lost in your eyes",
+ // "Are you a magician? Because whenever I look at you, everyone else disappears",
+ // "Melyana, if you were a vegetable you'd be a cute-cumber!",
+ // "Mei-Mei, are you French? Because Eiffel for you",
+ // "Do you have a name or can I call you mine?",
+ // "Melyana, are you a camera? Because every time I look at you, I smile",
+ // "Mei-Mei, if being cute was a crime, you'd be guilty as charged!",
+ // "Are you a parking ticket? Because you've got FINE written all over you",
+ // "Melyana, do you have a sunburn, or are you always this hot?",
+ // "Mei-Mei, are you religious? Because you're the answer to all my prayers",
+ // "Is your name Wi-Fi? Because I'm really feeling a connection",
+ // "Melyana, are you a fruit? Because you're a fine-apple!",
+ // "Mei-Mei, do you believe in love at first sight, or should I walk by again?",
+ // "Are you a magician? Because whenever I look at you, everyone else disappears",
+ // "Melyana, do you have a pencil? Cause I want to erase your past and write our future",
+ // "Mei-Mei, are you made of copper and tellurium? Because you're Cu-Te",
+ // "Is your dad a boxer? Because you're a knockout!",
+ // "Melyana, are you a campfire? Because you're hot and I want s'more",
+ // "Mei-Mei, do you have a Band-Aid? I just scraped my knee falling for you",
+ // "Are you a bank loan? Because you've got my interest",
+ // "Melyana, is your name Google? Because you've got everything I've been searching for",
+ // "Mei-Mei, are you a time traveler? Because I see you in my future",
+ // "Do you have a name, or can I call you mine?",
+ // "Melyana, if being cute was a crime, you'd be guilty as charged",
+ // "Mei-Mei, are you an alien? Because you're out of this world",
+ // "Is there something wrong with my eyes? I can't take them off you",
+ // "Melyana, do you have a map? I just keep getting lost in your eyes",
+ // "Mei-Mei, are you a parking ticket? Because you've got FINE written all over you",
+ // "Is this the Hogwarts Express? Because it feels like you and I are headed somewhere magical",
+ // "Melyana, are you a loan? Because you have my interest!",
+ // "Mei-Mei, do you have a Band-Aid? I just scraped my knee falling for you",
+ // "Are you a time traveler? Cause I see you in my future!",
+ // "Melyana, if you were a vegetable you'd be a cute-cumber!",
+ // "Mei-Mei, are you French? Because Eiffel for you",
+ // "Do you have a map? I keep getting lost in your eyes",
+ // "Melyana, are you a camera? Because every time I look at you, I smile",
+ // "Mei-Mei, do you have a name or can I call you mine?",
+ // "Are you a parking ticket? Because you've got FINE written all over you",
+ // "Melyana, if being cute was a crime, you'd be guilty as charged!",
+ // "Mei-Mei, are you a fruit? Because you're a fine-apple!",
+ // "Do you believe in love at first sight, or should I walk by again?",
+ // "Melyana, are you a magician? Because whenever I look at you, everyone else disappears",
+ // "Mei-Mei, do you have a sunburn, or are you always this hot?",
+ // "Are you religious? Because you're the answer to all my prayers",
+ // "Melyana, is your name Wi-Fi? Because I'm really feeling a connection",
+ // "Mei-Mei, are you a camera? Because every time I look at you, I smile",
+ // "Do you have a map? I just keep getting lost in your eyes",
+ // "Melyana, are you a parking ticket? Because you've got 'Fine' written all over you",
+ // "Mei-Mei, if you were a vegetable, you'd be a cute-cumber!",
+ // "Are you a time traveler? Because I see you in my future",
+ // "Melyana, do you have a pencil? Cause I want to erase your past and write our future",
+ // "Mei-Mei, are you made of copper and tellurium? Because you're Cu-Te",
+ // "Is your dad a boxer? Because you're a knockout!",
+ // "Melyana, are you a campfire? Because you're hot and I want s'more",
+ // "Mei-Mei, do you have a Band-Aid? I just scraped my knee falling for you",
+ // "Are you a bank loan? Because you've got my interest",
+ // "Melyana, is your name Google? Because you've got everything I've been searching for",
+ // "Mei-Mei, are you a fruit? Because you're a fine-apple!",
+ // "Do you believe in love at first sight, or should I walk by again?",
+ // "Melyana, if being cute was a crime, you'd be guilty as charged",
+ // "Mei-Mei, are you an interior decorator? Because when I saw you, the entire room became beautiful",
+ // "Is there an airport nearby or is that just my heart taking off?",
+ // "Melyana, are you a loan? Because you've got my interest!",
+ // "Mei-Mei, do you have a map? I keep getting lost in your eyes",
+ // "Are you a magician? Because whenever I look at you, everyone else disappears",
+ // "Melyana, if you were a vegetable you'd be a cute-cumber!",
+ // "Mei-Mei, are you French? Because Eiffel for you",
+ // "Do you have a name or can I call you mine?",
+ // "Melyana, are you a camera? Because every time I look at you, I smile",
+ // "Mei-Mei, if being cute was a crime, you'd be guilty as charged!",
+ // "Are you a parking ticket? Because you've got FINE written all over you",
+ // "Melyana, do you have a sunburn, or are you always this hot?",
+ // "Mei-Mei, are you religious? Because you're the answer to all my prayers",
+ // "Is your name Wi-Fi? Because I'm really feeling a connection",
+ // "Melyana, are you a fruit? Because you're a fine-apple!",
+ // "Mei-Mei, do you believe in love at first sight, or should I walk by again?",
+ // "Are you a magician? Because whenever I look at you, everyone else disappears",
+ // "Melyana, do you have a pencil? Cause I want to erase your past and write our future",
+ // "Mei-Mei, are you made of copper and tellurium? Because you're Cu-Te",
+ // "Is your dad a boxer? Because you're a knockout!",
+ // "Melyana, are you a campfire? Because you're hot and I want s'more",
+ // "Hey Mei-Mei, do you believe in love at first sight, or should I walk by again?"                     ,
+// "Just thinking about you makes my day brighter, Mei-Mei."                                             ,
+// "Mei-Mei, if I had a flower for every time I thought of you, I could walk in my garden forever."      ,
+// "Hey Melyana, do you have a map? Because I keep getting lost in your eyes."                           ,
+// "Mei-Mei, are you a magician? Because whenever I look at you, everyone else disappears."              ,
+// "Melyana, if beauty were a crime, you’d be serving a life sentence."                                  ,
+// "Hey Mei-Mei, can you lend me a kiss? I promise I'll give it back."                                   ,
+// "Is it just me, or does the world seem a little brighter when you’re around, Mei-Mei?"                ,
+// "Melyana, if I could rearrange the alphabet, I’d put ‘U’ and ‘I’ together."                           ,
+// "Every time I see you, Mei-Mei, I feel like the luckiest person in the world."                        ,
+// "Mei-Mei, do you have a Band-Aid? Because I just scraped my knee falling for you."                    ,
+// "Melyana, are you made of copper and tellurium? Because you're Cu-Te."                                ,
+// "Hey Mei-Mei, I must be a snowflake, because I’ve fallen for you."                                    ,
+// "Is it hot in here, or is it just you, Mei-Mei?"                                                      ,
+// "Mei-Mei, do you have a name, or can I call you mine?"                                                ,
+// "Every moment I spend with you, Melyana, feels like a beautiful dream I never want to wake up from."  ,
+// "Hey Mei-Mei, are you a time traveler? Because I can see you in my future."                           ,
+// "Melyana, I must be a photographer, because I can picture us together."                               ,
+// "Mei-Mei, if you were a vegetable, you’d be a cute-cumber."                                           ,
+// "Hey Mei-Mei, you must be tired, because you’ve been running through my mind all day."                ,
+// "Melyana, your smile must be a black hole, because it’s irresistibly attractive."                     ,
+// "Do you have a sunburn, Mei-Mei, or are you always this hot?"                                         ,
+// "Hey Mei-Mei, if I were to ask you out, would your answer be the same as the answer to this question?",
+// "Melyana, do you have a pencil? Because I want to erase your past and write our future."          ,
+// "Is your name Google, Mei-Mei? Because you’ve got everything I’ve been searching for."            ,
+// "Mei-Mei, you must be a parking ticket, because you’ve got ‘FINE’ written all over you."          ,
+// "Hey Melyana, did it hurt when you fell from heaven?"                                             ,
+// "Mei-Mei, you’re like a dictionary – you add meaning to my life."                                 ,
+// "Do you have a compass, Mei-Mei? Because without you, I'm lost."                                  ,
+// "Melyana, if kisses were snowflakes, I’d send you a blizzard."                                    ,
+// "Hey Mei-Mei, are you an angel? Because you’ve got heavenly vibes."                               ,
+// "Every time you smile, Melyana, my heart skips a beat."                                           ,
+// "Mei-Mei, do you believe in fate? Because I think we were meant to meet."                         ,
+// "Hey Mei-Mei, if stars were wishes, I'd wish for you every night."                                ,
+// "Do you have Wi-Fi, Melyana? Because I’m feeling a connection."                                   ,
+// "Mei-Mei, if you were a book, you’d be a bestseller."                                             ,
+// "Your eyes are like the ocean, Mei-Mei; I could get lost in them forever."                        ,
+// "Hey Mei-Mei, are you a campfire? Because you bring warmth and light into my life."               ,
+// "Melyana, you make my heart race without even trying."                                            ,
+// "Every time I see you, Mei-Mei, I smile a little more."                                           ,
+// "Mei-Mei, you light up my world like nobody else."                                                ,
+// "Hey Mei-Mei, you must be a magician, because whenever you're around, everything else disappears.",
+// "Your laughter is like music to my ears, Mei-Mei."                                              ,
+// "Melyana, I think you stole my heart, but you can keep it."                                     ,
+// "Hey Mei-Mei, you’re the reason I look forward to tomorrow."                                    ,
+// "Mei-Mei, if you were a dream, I'd never want to wake up."                                      ,
+// "Melyana, every moment with you feels like magic."                                              ,
+// "Mei-Mei, you must be a star, because you light up my darkest nights."                          ,
+// "Hey Mei-Mei, if beauty were a planet, you’d be the whole galaxy."                              ,
+// "Your smile, Mei-Mei, could melt the iciest of hearts."                                         ,
+// "Melyana, are you a camera? Because every time I look at you, I smile."                         ,
+// "Mei-Mei, you must be a light switch, because you turn me on."                                  ,
+// "Hey Mei-Mei, did it hurt when you fell from heaven?"                                           ,
+// "Mei-Mei, do you have a Band-Aid? Because I just scraped my heart falling for you."             ,
+// "Melyana, every time I see you, I fall a little more in love."                                  ,
+// "Mei-Mei, if we were stars, I’d want to orbit around you forever."                              ,
+// "Your presence, Mei-Mei, makes my day extraordinary."                                           ,
+// "Hey Mei-Mei, I must be a treasure hunter, because I found you and you’re a gem."               ,
+// "Mei-Mei, do you have a map? Because I’m lost in your eyes."                                    ,
+// "Melyana, you’re the song I want to listen to on repeat forever."                               ,
+// "Mei-Mei, if my love for you were a number, it would be infinite."                              ,
+// "Hey Mei-Mei, do you believe in magic? Because whenever I’m with you, everything feels magical.",
+// "Melyana, you're like a ray of sunshine on a cloudy day."                                       ,
+// "Mei-Mei, every time I see you, my heart does a little dance."                                  ,
+// "Mei-Mei, you make the ordinary moments extraordinary."                                         ,
+// "Melyana, your smile is my favorite sunrise."                                                   ,
+// "Hey Mei-Mei, are you a wizard? Because whenever I’m with you, I feel enchanted."               ,
+// "Mei-Mei, if love were a storybook, we’d have the perfect ending."                              ,
+// "Hey Mei-Mei, you must be a thief, because you stole my heart."                                 ,
+// "Melyana, you’re the reason I wake up with a smile."                                            ,
+// "Mei-Mei, do you have a Band-Aid? Because I just scraped my knee falling for you."              ,
+// "Hey Mei-Mei, are you an angel? Because you’ve got heavenly vibes."                             ,
+// "Melyana, every moment with you feels like a beautiful dream."                                  ,
+// "Mei-Mei, you must be a camera because you make me smile."                                      ,
+// "Hey Mei-Mei, do you have a sunburn, or are you always this hot?"                               ,
+// "Melyana, if kisses were snowflakes, I’d send you a blizzard."                                  ,
+// "Mei-Mei, you make my heart race without even trying."                                          ,
+// "Hey Mei-Mei, if you were a vegetable, you’d be a cute-cumber."                                 ,
+// "Melyana, are you a magician? Because whenever you’re around, everything else disappears."      ,
+// "Mei-Mei, you must be a parking ticket, because you’ve got ‘FINE’ written all over you."        ,
+// "Hey Mei-Mei, if stars were wishes, I'd wish for you every night."                              ,
+// "Melyana, do you have Wi-Fi? Because I’m feeling a connection."                                 ,
+// "Mei-Mei, if you were a book, you’d be a bestseller."                                           ,
+// "Hey Mei-Mei, are you a campfire? Because you bring warmth and light into my life."             ,
+// "Melyana, you make my heart race like nothing else."                                            ,
+// "Mei-Mei, every time I see you, I smile a little more."                                         ,
+// "Mei-Mei, you’re the reason I look forward to tomorrow."                                        ,
+// "Mei-Mei, you must be a light switch, because you turn me on."                                  ,
+// "Hey Mei-Mei, did it hurt when you fell from heaven?"                                           ,
+// "Mei-Mei, do you have a Band-Aid? Because I just scraped my heart falling for you."             ,
+// "Melyana, every moment with you feels like a beautiful dream."                                  ,
+// "Mei-Mei, you’re the melody I can’t get out of my head."                                        ,
+// "Hey Mei-Mei, if beauty were a sport, you’d win gold."                                          ,
+// "Melyana, if you were a dessert, you'd be a sweet treat."                                       ,
+// "Mei-Mei, every time I see you, my heart skips a beat."                                         ,
+// "Hey Mei-Mei, you must be an artist, because you make my life a masterpiece."                   ,
+// "Mei-Mei, if you were a flower, you’d be a perfect rose."                                       ,
+// "Melyana, do you have a name, or can I call you mine?"                                          ,
+// "Mei-Mei, are you a time traveler? Because I can see you in my future."                         ,
+// "Mei-Mei, if I had a flower for every time I thought of you, I could walk in my garden forever.",
+//  "You've got this, Mei-Mei!",
+//  "Believe in yourself, Melyana",
+//  "Your potential is limitless",
+//  "Keep pushing forward",
+//  "You're stronger than you know",
+//  "Every day is a new opportunity",
+//  "Your hard work will pay off",
+//  "Stay focused on your goals",
+//  "You're making great progress",
+//  "Your dedication is inspiring",
+//  "Trust your journey, Mei-Mei",
+//  "You're capable of amazing things",
+//  "Keep that positive attitude",
+//  "Your efforts are noticed",
+//  "You're on the right path",
+//  "Embrace the challenges",
+//  "You're growing every day",
+//  "Your persistence is admirable",
+//  "Stay true to yourself, Melyana",
+//  "You're doing great!",
+//  "Keep shining bright",
+//  "Your future is bright",
+//  "You're making a difference",
+//  "Believe in your dreams",
+//  "You're unstoppable",
+//  "Keep up the great work",
+//  "Your determination is impressive",
+//  "You've come so far",
+//  "Stay confident, Mei-Mei",
+//  "You're an inspiration",
+//  "Keep moving forward",
+//  "Your strength is remarkable",
+//  "You're overcoming obstacles",
+//  "Stay positive, stay focused",
+//  "You're making progress every day",
+//  "Your resilience is admirable",
+//  "Keep believing in yourself",
+//  "You're capable of greatness",
+//  "Stay motivated, Melyana",
+//  "You're on the path to success",
+//  "Your hard work is paying off",
+//  "Keep pushing your limits",
+//  "You're achieving your goals",
+//  "Stay committed to your dreams",
+//  "You're making great strides",
+//  "Your dedication shows",
+//  "Keep that determination",
+//  "You're becoming stronger",
+//  "Stay passionate, Mei-Mei",
+//  "You're doing amazing things",
+//  "Keep that positive mindset",
+//  "You're overcoming challenges",
+//  "Stay focused on your path",
+//  "You're growing every day",
+//  "Your efforts are worthwhile",
+//  "Keep striving for excellence",
+//  "You're making a positive impact",
+//  "Stay true to your values",
+//  "You're accomplishing great things",
+//  "Keep that spirit alive",
+//  "You're reaching new heights",
+//  "Stay committed to growth",
+//  "You're making progress",
+//  "Keep pushing forward",
+//  "You're achieving your dreams",
+//  "Stay resilient, Melyana",
+//  "You're doing incredible work",
+//  "Keep that enthusiasm",
+//  "You're breaking barriers",
+//  "Stay determined",
+//  "You're making a difference",
+//  "Keep believing in yourself",
+//  "You're reaching your potential",
+//  "Stay focused on your goals",
+//  "You're growing stronger",
+//  "Keep up the great effort",
+//  "You're overcoming obstacles",
+//  "Stay positive, stay strong",
+//  "You're making great progress",
+//  "Keep that determination",
+//  "You're achieving success",
+//  "Stay committed to excellence",
+//  "You're doing fantastic",
+//  "Keep pushing your boundaries",
+//  "You're becoming your best self",
+//  "Stay motivated, Mei-Mei",
+//  "You're accomplishing your goals",
+//  "Keep that positive attitude",
+//  "You're making significant strides",
+//  "Stay true to your dreams",
+//  "You're growing every day",
+//  "Keep up the amazing work",
+//  "You're overcoming challenges",
+//  "Stay focused on success",
+//  "You're making a positive impact",
+//  "Keep believing in your abilities",
+//  "You're reaching new milestones",
+//  "Stay committed to your journey",
+//  "You're doing great things",
+//  "Keep that passion alive",
+//  "You're breaking new ground",
+//  "Stay determined, Melyana",
+//  "You're making progress every day",
+//  "Keep pushing forward",
+//  "You're achieving your aspirations",
+//  "Stay resilient in face of obstacles",
+//  "You're doing incredible work",
+//  "Keep that enthusiasm high",
+//  "You're surpassing expectations",
+//  "Stay focused on your path",
+//  "You're growing stronger each day",
+//  "Keep up the fantastic effort",
+//  "You're overcoming every hurdle",
+//  "Stay positive, stay determined",
+//  "You're making remarkable progress",
+//  "Keep that unwavering determination",
+//  "You're achieving great success",
+//  "Stay committed to your goals",
+//  "You're doing exceptionally well",
+//  "Keep pushing your limits",
+//  "You're becoming an inspiration",
+//  "Stay motivated, stay focused",
+//  "You're accomplishing amazing things",
+//  "Keep that optimistic outlook",
+//  "You're making significant impact",
+//  "Stay true to your aspirations",
+//  "You're growing in remarkable ways",
+//  "Keep up the outstanding work",
+//  "You're overcoming every challenge",
+//  "Stay focused on your dreams",
+//  "You're making a lasting difference",
+//  "Keep believing in your potential",
+//  "You're reaching impressive heights",
+//  "Stay committed to personal growth",
+//  "You're doing phenomenal work",
+//  "Keep that passion burning bright",
+//  "You're breaking through barriers",
+//  "Stay determined, stay strong",
+//  "You're making consistent progress",
+//  "Keep pushing beyond limits",
+//  "You're achieving incredible things",
+//  "Stay resilient, stay positive",
+//  "You're doing outstanding work",
+//  "Keep that enthusiastic spirit",
+//  "You're surpassing all expectations",
+//  "Stay focused on your journey",
+//  "You're growing stronger every moment",
+//  "Keep up the inspiring effort",
+//  "You're overcoming with grace",
+//  "Stay positive, stay committed",
+//  "You're making extraordinary progress",
+//  "Keep that unwavering focus",
+//  "You're achieving remarkable success",
+//  "Stay dedicated to your path",
+//  "You're doing amazing things, Mei-Mei",
+//  "Keep pushing towards excellence",
+//  "You're becoming truly exceptional",
+//  "Stay motivated, stay determined",
+//  "You're accomplishing great feats",
+//  "Keep that positive energy flowing",
+//  "You're making a significant difference",
+//  "Stay true to your unique journey",
+//  "You're growing in incredible ways",
+//  "Keep up the phenomenal work",
+//  "You're overcoming with strength",
+//  "Stay focused on your bright future",
+//  "You're making a lasting impact",
+//  "Keep believing in your incredible potential",
+//  "You're reaching new heights every day",
+//  "Stay committed to your personal best",
+//  "You're doing remarkable work, Melyana",
+//  "Keep that passion alive and strong",
+//  "You're breaking through every barrier",
+//  "Stay determined, stay focused",
+//  "You're making impressive strides",
+//  "Keep pushing beyond your comfort zone",
+//  "You're achieving beyond expectations",
+//  "Stay resilient, stay committed",
+//  "You're doing extraordinary things",
+//  "Keep that enthusiasm burning bright",
+//  "You're surpassing your own goals",
+//  "Stay focused on your unique path",
+ "You're growing stronger with each step"
+
+};
+
+#define ADVICE_COUNT (sizeof(advice_list) / sizeof(advice_list[0]))
+
+
+==================================================
+File: bitmap_data.h
+==================================================
+
+#include <stdint.h>
+#include QMK_KEYBOARD_H
+static const char PROGMEM image_bitmap[] = {
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F,
+    0x0F, 0xBF, 0x3F, 0x7F, 0xBF, 0x3F, 0x3F, 0xFF, 0x3F, 0x3F, 0xBF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xDF, 0x9F, 0x1F, 0x7F, 0x7F, 0x1F, 0x9F, 0x7F, 0x3F, 0xBF, 0x3F, 0x7F, 0xEF, 0x0F, 0x0F, 0xBF,
+    0x3F, 0x7F, 0xBF, 0x3F, 0xFF, 0x3F, 0xFF, 0x3F, 0xBF, 0xBF, 0xBF, 0x2F, 0x2F, 0xFF, 0xFF, 0x7F,
+    0x3F, 0x3F, 0xBF, 0xBF, 0xFF, 0xBF, 0x0F, 0x0F, 0xBF, 0xBF, 0xFF, 0x7F, 0x3F, 0xBF, 0x3F, 0x7F,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xF8,
+    0xF8, 0xFB, 0xF8, 0xFC, 0xEF, 0xEE, 0xE0, 0xF3, 0xF8, 0xFE, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFB, 0xF8, 0xF8, 0xFB, 0xFF, 0xF9, 0xF8, 0xFA, 0xF8, 0xF8, 0xFF, 0xF8, 0xF8, 0xFF,
+    0xF8, 0xF8, 0xFF, 0xFE, 0xF8, 0xFC, 0xF8, 0xFC, 0xFF, 0xFB, 0xFB, 0xF8, 0xF8, 0xFB, 0xFB, 0xFB,
+    0xFA, 0xFA, 0xF8, 0xF8, 0xFD, 0xFF, 0xFC, 0xF8, 0xFB, 0xF9, 0xFD, 0xF9, 0xF8, 0xFA, 0xF8, 0xF8,
+    0xFB, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
+};
+
+
+==================================================
+File: keymap.c
+==================================================
+
+#include QMK_KEYBOARD_H
+#include "gombalan.h"
+#include "bitmap_data.h"
+
+#define CHAR_DELAY 50
+#define MAX_CHARS_PER_LINE 21
+#define MAX_LINES 4
+
+static uint16_t char_timer = 0;
+static uint8_t current_char = 0;
+static char current_advice[100] = {0};
+static bool advice_completed = false;
+static bool new_advice_needed = true;
+static uint32_t startup_timer = 0;
+static bool initial_display = true;
+
+// Define custom keycodes for encoder buttons
+enum custom_keycodes {
+    ENC1_BTN = SAFE_RANGE,
+    ENC2_BTN,
+};
+
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    [0] = LAYOUT_base(
+        KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC, KC_HOME,
+        KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS, KC_END, ENC1_BTN,
+        KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,          KC_ENT,  KC_PGUP,ENC2_BTN,
+        LSFT_T(KC_GRV),   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP,   KC_PGDN,
+        KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                             KC_RALT,   MO(1), KC_LEFT, KC_DOWN, KC_RGHT ),
+
+    [1] = LAYOUT_base(
+        KC_TRNS, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11, KC_F12,  KC_DEL, KC_HOME,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_UP,   KC_TRNS,
+        KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                             KC_RALT, KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT )
+};
+
+void oled_show_random_advice(void) {
+    static uint8_t line = 0;
+    static uint8_t col = 0;
+    static uint16_t word_end = 0;
+
+    if (new_advice_needed) {
+        char_timer = timer_read();
+        current_char = 0;
+        line = 0;
+        col = 0;
+        word_end = 0;
+        advice_completed = false;
+        int random_index = rand() % ADVICE_COUNT;
+        strncpy(current_advice, advice_list[random_index], sizeof(current_advice) - 1);
+        current_advice[sizeof(current_advice) - 1] = '\0';
+        oled_clear();
+        new_advice_needed = false;
+    }
+
+    if (!advice_completed && current_char < strlen(current_advice)) {
+        if (timer_elapsed(char_timer) > CHAR_DELAY) {
+            char_timer = timer_read();
+
+            if (current_char >= word_end) {
+                for (word_end = current_char; word_end < strlen(current_advice); word_end++) {
+                    if (current_advice[word_end] == ' ' || word_end == strlen(current_advice) - 1) {
+                        break;
+                    }
+                }
+            }
+
+            if (col == 0 || (col + (word_end - current_char + 1) <= MAX_CHARS_PER_LINE)) {
+                oled_set_cursor(col, line);
+                oled_write_char(current_advice[current_char], false);
+                col++;
+
+                if (col >= MAX_CHARS_PER_LINE || current_advice[current_char] == '\n') {
+                    line++;
+                    col = 0;
+                    if (line >= MAX_LINES) {
+                        advice_completed = true;
+                        return;
+                    }
+                }
+
+                current_char++;
+            } else {
+                line++;
+                col = 0;
+                if (line >= MAX_LINES) {
+                    advice_completed = true;
+                    return;
+                }
+            }
+
+            if (current_char == strlen(current_advice)) {
+                advice_completed = true;
+            }
+        }
+    }
+}
+
+void change_advice(void) {
+    new_advice_needed = true;
+    advice_completed = false;
+    oled_clear();
+}
+
+bool oled_task_user(void) {
+    if (initial_display) {
+        if (startup_timer == 0) {
+            startup_timer = timer_read32();
+            oled_clear();
+            oled_write_raw_P(image_bitmap, sizeof(image_bitmap));
+        }
+
+        if (timer_elapsed32(startup_timer) > 4000) {
+            initial_display = false;
+            oled_clear();
+            new_advice_needed = true;
+        }
+    } else {
+        oled_show_random_advice();
+    }
+
+    return false;
+}
+
+void keyboard_post_init_user(void) {
+    srand(timer_read());
+    oled_init(OLED_ROTATION_180);
+    initial_display = true;
+    startup_timer = 0;
+}
+
+void keyboard_pre_init_user(void) {
+    oled_init(OLED_ROTATION_180);
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case ENC1_BTN:
+        case ENC2_BTN:
+            if (record->event.pressed) {
+                change_advice();
+            }
+            return false;
+        default:
+            // This allows Vial-configured keys to change the advice
+            if (record->event.pressed) {
+                if (advice_completed) {
+                    change_advice();
+                }
+                oled_task_user();
+            }
+            return true;
+    }
+}
+
+#if defined(ENCODER_MAP_ENABLE)
+const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
+    [0] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
+    [1] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_MPRV, KC_MNXT) }
+};
+#endif
+
+
+==================================================
+File: config.h
+==================================================
+
+#pragma once
+
+#define VIAL_KEYBOARD_UID {0x8C, 0x59, 0x2E, 0xF7, 0xBA, 0x40, 0xCC, 0xCA}
+
+#define VIAL_UNLOCK_COMBO_ROWS { 0, 4 }
+#define VIAL_UNLOCK_COMBO_COLS { 0, 14 }
+
+#define VIAL_TAP_DANCE_ENTRIES 4
+#define VIAL_COMBO_ENTRIES 4
+#define VIAL_KEY_OVERRIDE_ENTRIES 4
+
+#define DYNAMIC_KEYMAP_LAYER_COUNT 2
+
+// OLED Configuration
+#define OLED_TIMEOUT 60000
+#define OLED_BRIGHTNESS 128
+
+// Animation Configuration
+#define IDLE_FRAMES 5
+#define IDLE_SPEED 30
+#define TAP_FRAMES 2
+#define TAP_SPEED 40
+#define ANIM_FRAME_DURATION 200
+#define ANIM_SIZE 512
+
+// Encoder Configuration
+#define ENCODER_RESOLUTION 4
+#define ENCODER_DEFAULTACTIONS_INDEX 0
+#undef ENCODERS_PAD_A
+#undef ENCODERS_PAD_B
+#define ENCODERS_PAD_A { D4, F4 }
+#define ENCODERS_PAD_B { C6, F5 }
+// #define ENCODERS_PAD_A { C6, F5 }
+// #define ENCODERS_PAD_B { D4, F4 }
+#define ENCODER_DEFAULTACTIONS_ENABLE
