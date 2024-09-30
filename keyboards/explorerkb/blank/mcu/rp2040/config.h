@@ -23,7 +23,8 @@
 /* Main Keyboard Hand*/
 #define USE_SERIAL
 #define SERIAL_USE_MULTI_TRANSACTION
-#define MASTER_RIGHT
+// #define MASTER_RIGHT
+#define EE_HANDS
 
 /* Encoder EC-11 */
 #define ENCODERS_PAD_A { GP29 }
