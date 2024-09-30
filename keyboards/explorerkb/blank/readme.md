@@ -29,3 +29,7 @@ or
     qmk compile -c -kb explorerkb/blank/mcu/32u4 -km [KEYMAP]
 
 See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start with our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).
+
+
+    qmk flash -c -kb explorerkb/blank/mcu/rp2040 -km v2 -bl uf2-split-left
+    qmk flash -c -kb explorerkb/blank/mcu/rp2040 -km v2 -bl uf2-split-right
