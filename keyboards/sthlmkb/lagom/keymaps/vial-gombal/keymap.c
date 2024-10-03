@@ -120,6 +120,10 @@ void oled_show_random_advice(void) {
             }
         }
     }
+
+    if (advice_completed) {
+        new_advice_needed = false;
+    }
 }
 
 void change_advice(void) {
@@ -237,23 +241,23 @@ bool oled_task_user(void) {
 
     #ifdef VIAL_ENABLE
     if (!vial_unlock_in_progress) {
-        if (advice_completed && !last_key_was_special) {
+        if (last_key_was_special) {
+            oled_show_random_advice();
+        } else {
             render_anim();
             oled_set_cursor(0,4);
             sprintf(wpm_str, "WPM: %03d", get_current_wpm());
             oled_write(wpm_str, false);
-        } else {
-            oled_show_random_advice();
         }
     }
     #else
-    if (advice_completed && !last_key_was_special) {
+    if (last_key_was_special) {
+        oled_show_random_advice();
+    } else {
         render_anim();
         oled_set_cursor(0,4);
         sprintf(wpm_str, "WPM: %03d", get_current_wpm());
         oled_write(wpm_str, false);
-    } else {
-        oled_show_random_advice();
     }
     #endif
 
@@ -277,25 +281,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case ENC1_BTN:
         case ENC2_BTN:
-            if (record->event.pressed) {
-                change_advice();
-                last_key_was_special = true;
-            }
-            return false;
         case KC_ENT:
             if (record->event.pressed) {
-                if (advice_completed) {
+                last_key_was_special = !last_key_was_special;
+                if (last_key_was_special) {
                     change_advice();
                 }
-                last_key_was_special = true;
                 oled_task_user();
             }
-            return true;
+            return (keycode == KC_ENT); // Return false for encoder buttons, true for Enter
         default:
             if (record->event.pressed) {
-                if (advice_completed && !last_key_was_special) {
-                    change_advice();
-                }
                 last_key_was_special = false;
                 oled_task_user();
             }
