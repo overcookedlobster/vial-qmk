@@ -15,6 +15,7 @@
 #define IDLE_FRAMES 5
 #define TAP_FRAMES 2
 
+bool last_key_was_special = false;
 static uint16_t char_timer = 0;
 static uint8_t current_char = 0;
 static char current_advice[100] = {0};
@@ -236,7 +237,7 @@ bool oled_task_user(void) {
 
     #ifdef VIAL_ENABLE
     if (!vial_unlock_in_progress) {
-        if (advice_completed) {
+        if (advice_completed && !last_key_was_special) {
             render_anim();
             oled_set_cursor(0,4);
             sprintf(wpm_str, "WPM: %03d", get_current_wpm());
@@ -246,7 +247,7 @@ bool oled_task_user(void) {
         }
     }
     #else
-    if (advice_completed) {
+    if (advice_completed && !last_key_was_special) {
         render_anim();
         oled_set_cursor(0,4);
         sprintf(wpm_str, "WPM: %03d", get_current_wpm());
@@ -278,6 +279,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case ENC2_BTN:
             if (record->event.pressed) {
                 change_advice();
+                last_key_was_special = true;
             }
             return false;
         case KC_ENT:
@@ -285,12 +287,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 if (advice_completed) {
                     change_advice();
                 }
+                last_key_was_special = true;
                 oled_task_user();
             }
             return true;
         default:
-            if (record->event.pressed && advice_completed) {
-                change_advice();
+            if (record->event.pressed) {
+                if (advice_completed && !last_key_was_special) {
+                    change_advice();
+                }
+                last_key_was_special = false;
                 oled_task_user();
             }
             return true;
