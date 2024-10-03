@@ -158,13 +158,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 change_advice();
             }
             return false;
-        default:
+        case KC_ENT:
             if (record->event.pressed) {
                 if (advice_completed) {
                     change_advice();
                 }
                 oled_task_user();
             }
+            return true;
+        default:
+
+            // if (record->event.pressed) {
+            //     if (advice_completed) {
+            //         change_advice();
+            //     }
+            //     oled_task_user();
+            // }
             return true;
     }
 }
