@@ -283,7 +283,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case ENC2_BTN:
         case KC_ENT:
             if (record->event.pressed) {
-                last_key_was_special = !last_key_was_special;
+                last_key_was_special = true;
                 if (last_key_was_special) {
                     change_advice();
                 }
